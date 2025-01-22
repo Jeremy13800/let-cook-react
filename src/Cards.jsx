@@ -16,7 +16,7 @@ const cards = () => {
         <h2 className="m-2">{recipe.title}</h2>
         <p className="m-2">Difficulté : {recipe.difficulty}</p>
         <p className="m-2 mt-2">{recipe.description}</p>
-        <button className="bg-[#D1CFCF] text-[#E4B95F] ml-auto mt-auto justify-end font-bold w-1/2  opacity-90 py-2 px-4 rounded-md">
+        <button className="bg-[#E4B95F]  ml-auto mt-auto justify-end font-bold w-1/2  opacity-90 py-2 px-4 rounded-md">
           En savoir plus
         </button>
       </div>

@@ -9,6 +9,7 @@ const Hero = () => {
         style={{
           backgroundImage:
             "url('/public/kitchen_banner_with_black_filter.png')",
+          backgroundSize: "cover",
         }}
       >
         {/*Texte en overlays */}
