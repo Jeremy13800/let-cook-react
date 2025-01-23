@@ -2,13 +2,12 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="relative w-full h-[500px] overflow-hidden">
+    <div className="relative w-full h-[500px] overflow-hidden mt-2">
       {/* Image Background */}
       <div
         className="w-full h-full bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage:
-            "url('/public/kitchen_banner_with_black_filter.png')",
+          backgroundImage: "url('/public/hero-image.jpeg')",
           backgroundSize: "cover",
         }}
       >

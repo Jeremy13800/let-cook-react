@@ -4,8 +4,9 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./Header";
 import Hero from "./Hero";
-import Cards from "./cards";
+import Cards from "./Cards";
 import Section from "./Section";
+import Footer from "./Footer";
 
 import React from "react";
 
@@ -14,8 +15,11 @@ const App = () => {
     <div>
       <Header />
       <Hero />
-      <Cards />
-      <Section />
+      <div className="bg-gradient-to-b from-white via-white/80 to-[#D1CFCF] min-h-screen">
+        <Cards />
+        <Section />
+        <Footer />
+      </div>
     </div>
   );
 };
