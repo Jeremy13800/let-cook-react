@@ -2,20 +2,21 @@ import React from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Section = () => {
   const links = [
     {
       title: "Home",
-      url: "#",
+      url: "/",
     },
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
     },
     {
       title: "Recettes",
-      url: "#",
+      url: "/recette",
     },
     {
       title: "Contact",
@@ -43,10 +44,10 @@ const Section = () => {
           </li> */}
           {links.map((link, i) => {
             return (
-              <li>
-                <a className="hover:text-[#d1cfcf] px-2" href={link.url}>
+              <li key={i}>
+                <Link className="hover:text-[#d1cfcf] px-2" to={link.url}>
                   {link.title}
-                </a>
+                </Link>
               </li>
             );
           })}
@@ -86,8 +87,9 @@ const Section = () => {
             className="border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-1"
           />
           <button
+            aria-label="bouton qui permet de souscrire le formulaire d'adhesion a la newsletter"
             type="submit"
-            className="bg-[#E4B95F] w-1/2 ml-auto  text-white font-medium py-2 px-4 rounded-lg hover:bg-yellow-600 transition duration-300"
+            className="bg-[#E4B95F] w-1/2 ml-auto  text-black text-medium font-bold py-2 px-4 rounded-lg hover:bg-yellow-600 transition duration-300"
           >
             S'inscrire
           </button>

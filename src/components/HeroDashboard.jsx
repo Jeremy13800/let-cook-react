@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hero = () => {
+const HeroDashboard = () => {
   return (
     <div className="relative w-full h-[500px] overflow-hidden mt-2">
       {/* Image Background */}
@@ -13,12 +13,12 @@ const Hero = () => {
       >
         {/*Texte en overlays */}
         <div className="text-white text-center p-5 rounded-md">
-          <h1 className="text-7xl font-bold mb-3">Let's Cook</h1>
+          <h1 className="text-6xl font-bold mb-3">DASHBOARD</h1>
           <h2 className="text-2xl mb-6">
             On a trouvé la recette pour vous faire aimer la cuisine
           </h2>
           {/* Barre de recherche */}
-          <div className="pt-2">
+          <div className="pt-2 text-black">
             <input
               type="search"
               className="  border-[#d1cfcf] p-2 w-3/4"
@@ -35,4 +35,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroDashboard;
