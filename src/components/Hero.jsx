@@ -19,7 +19,7 @@ const Hero = () => {
       try {
         const response = await fetch("../src/assets/recettes.json");
         if (!response.ok) {
-          throw new Error("Erreur lors du chargement des données.");
+          throw new Error("Erreur lors du chargement des données.hkhothkok");
         }
         const data = await response.json();
         setRecipes(data); // Mettre à jour les recettes
