@@ -2,19 +2,26 @@ import React from "react";
 import recettes from "../assets/recettes.json";
 import { useLocation } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import { useParams } from "react-router-dom";
 
 const RecipesContent = () => {
   // Récupération de la recette courante
   const location = useLocation();
   const recipe = location.state;
+  // Récupération de l'id de la recette courante
+  const { id } = useParams();
 
   if (!recipe) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-gray-500 text-lg">Aucune recette selectionnée</p>
+        <p className="text-gray-500 text-lg">
+          Aucune recette selectionnéehgthàtkh
+        </p>
       </div>
     );
   }
+
+  //Gestion des etoiles rerésentantn la difficulté
   const etoile = (difficulty) => {
     const totalStars = 5; // Nombre d'étoiles total
     const stars = [];

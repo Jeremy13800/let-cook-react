@@ -6,6 +6,8 @@ import RecipesContent from "./components/RecipesContent";
 import Recette from "./pages/Recette";
 import Cards from "./components/Cards";
 
+import Hero from "./components/Hero";
+
 const App = () => {
   return (
     <Routes>
@@ -17,6 +19,8 @@ const App = () => {
       <Route path="/*" element={<p>404</p>} />
       <Route path="/" element={<Cards />} />
       <Route path="/recette/:id" element={<Recette />} />
+      <Route path="/" element={<Hero />} />
+      <Route path="/recettes/:id" element={<RecipesContent />} />
     </Routes>
   );
 };
