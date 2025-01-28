@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import recettes from "../assets/recettes.json"
+import recetteData from "../assets/recettes.json"
 
 const HeroRecipes = () => {
   const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
@@ -16,23 +16,27 @@ const HeroRecipes = () => {
   };
 
   // Charger dynamiquement les données JSON
-  useEffect(() => {
-    const fetchRecipes = async () => {
-       try {
-        const response = await fetch("/src/assets/recettes.json");
-        if (!response.ok) {
-          throw new Error("Erreur lors du chargement des données.");
-        }
-        const data = await response.json();
-        setRecipes(recettes); // Mettre à jour les recettes
-        setFilteredRecipes(recettes); // Initialiser les recettes filtrées
-      } catch (err) {
-        setError(err.message); // Gérer les erreurs
-      }
-    };
+  // useEffect(() => {
+  //   const fetchRecipes = async () => {
+  //     try {
+  //       const response = await fetch("/src/assets/recettes.json");
+  //       if (!response.ok) {
+  //         throw new Error("Erreur lors du chargement des données.");
+  //       }
+  //       const data = await response.json();
+  //       setRecipes(data); // Mettre à jour les recettes
+  //       setFilteredRecipes(data); // Initialiser les recettes filtrées
+  //     } catch (err) {
+  //       setError(err.message); // Gérer les erreurs
+  //     }
+  //   };
 
-    fetchRecipes();
-  }, []);
+  //   fetchRecipes();
+  // }, []);
+  useEffect(() => {
+    setRecipes(recetteData);
+    setFilteredRecipes(recetteData);
+  }, [])
 
   // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
   useEffect(() => {
