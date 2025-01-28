@@ -84,10 +84,38 @@ const Hero = () => {
               Rechercher
             </button>
           </div>
-          <div className="bg-white p-4 mt-4 rounded shadow w-3/4 mx-auto text-black max-h-[200px] overflow-y-auto">
+          {/* Liste des recettes qui apparait uniquement lorsque l'utilisateur entre une lettre dans la barre de */}
+          <div
+            style={{
+              visibility: searchTerm.trim() ? "visible" : "hidden", // Rend visible/invisible
+              opacity: searchTerm.trim() ? 1 : 0, // Transition d'opacité pour l'apparition
+              transform: searchTerm.trim()
+                ? "translateY(0)"
+                : "translateY(-10px)", // Glissement subtil
+              transition:
+                "opacity 0.5s ease, transform 0.5s ease, visibility 0.5s", // Transition fluide
+              position: "absolute", // Hors du flux
+              top: "69%", // Placé juste en dessous
+              left: "35%", // Centrage horizontal
+              transformOrigin: "top", // Origine du glissement
+              zIndex: 10, // Toujours visible au-dessus
+              width: "30%", // Largeur de la div
+              height: "30%", // Hauteur de la div
+              backgroundColor: "white", // Fond blanc
+              color: "black",
+              padding: searchTerm.trim() ? "1rem" : "0", // Transition du padding
+              borderRadius: "5px", // Coins arrondis
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.5)", // Légère ombre
+              maxHeight: "200px", // Hauteur maximale
+              opacity: "0.7",
+            }}
+          >
             {filteredRecipes.length > 0 ? (
               filteredRecipes.map((recipe) => (
-                <div key={recipe.id} className="p-2 border-b">
+                <div
+                  key={recipe.id}
+                  className="p-2 border-b hover:text-[#d1cfcf]"
+                >
                   <button
                     onClick={() => handleMoreInfo(recipe)}
                     className="font-bold"
