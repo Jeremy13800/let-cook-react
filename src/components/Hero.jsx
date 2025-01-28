@@ -10,7 +10,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const handleMoreInfo = (recipe) => {
-    navigate(`/recette/${recipe.id}`);
+    navigate(`/recettes/${recipe.id}`);
   };
 
   // Charger dynamiquement les données JSON

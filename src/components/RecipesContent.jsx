@@ -1,47 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import recettes from "../assets/recettes.json";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import { useParams } from "react-router-dom";
 
 const RecipesContent = () => {
-  // Récupération de la recette courante
   const location = useLocation();
-  const recipe = location.state;
-  // Récupération de l'id de la recette courante
   const { id } = useParams();
+  const [recipe, setRecipe] = useState(null);
+
+  useEffect(() => {
+    // Essayer d'abord de récupérer la recette depuis location.state
+    if (location.state) {
+      setRecipe(location.state);
+      return;
+    }
+
+    // Si pas de state, chercher la recette par ID dans le fichier JSON
+    const foundRecipe = recettes.find(r => r.id.toString() === id);
+    if (foundRecipe) {
+      setRecipe(foundRecipe);
+    }
+  }, [id, location.state]);
 
   if (!recipe) {
     return (
       <div className="flex items-center justify-center h-screen">
         <p className="text-gray-500 text-lg">
-          Aucune recette selectionnéehgthàtkh
+          Recette non trouvée
         </p>
       </div>
     );
   }
 
-  //Gestion des etoiles rerésentantn la difficulté
   const etoile = (difficulty) => {
-    const totalStars = 5; // Nombre d'étoiles total
+    const totalStars = 5;
     const stars = [];
 
     for (let i = 1; i <= totalStars; i++) {
       if (i <= difficulty) {
-        stars.push(<FaStar key={i} className="text-[#E4B95F] inline mb-1" />); // Étoile pleine
+        stars.push(<FaStar key={i} className="text-[#E4B95F] inline mb-1" />);
       } else {
-        // stars.push(<FaRegStar key={i} className="text-gray-300 inline mb-1" />); // Étoile vide
+        stars.push(<FaRegStar key={i} className="text-gray-300 inline mb-1" />);
       }
     }
     return stars;
   };
+
   return (
-    <div className="container mx-auto my-12  px-4 md:px-8 lg:px-16">
+    <div className="container mx-auto my-12 px-4 md:px-8 lg:px-16">
       <h1 className="text-5xl font-bold mb-12 text-center text-gray-800 tracking-wide">
         {recipe.title}
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12  bg-gray-50 p-8 rounded-lg shadow-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-lg shadow-lg">
         {/* Colonne gauche */}
         <div className="space-y-10">
           <div>
