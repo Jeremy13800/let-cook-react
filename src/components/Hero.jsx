@@ -32,7 +32,7 @@ const Hero = () => {
     fetchRecipes();
   }, []);
 
-  // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
+  // Mettre à jour les recettes filtrées à chaque modification du champ de recherche !
   useEffect(() => {
     setFilteredRecipes(
       recipes.filter((recipe) =>
@@ -88,7 +88,7 @@ const Hero = () => {
           <div
             style={{
               visibility: searchTerm.trim() ? "visible" : "hidden", // Rend visible/invisible
-              opacity: searchTerm.trim() ? 1 : 0, // Transition d'opacité pour l'apparition
+              opacity: searchTerm.trim() ? 0.8 : 0, // Transition d'opacité pour l'apparition
               transform: searchTerm.trim()
                 ? "translateY(0)"
                 : "translateY(-10px)", // Glissement subtil
@@ -107,7 +107,6 @@ const Hero = () => {
               borderRadius: "5px", // Coins arrondis
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.5)", // Légère ombre
               maxHeight: "200px", // Hauteur maximale
-              opacity: "0.7",
             }}
           >
             {filteredRecipes.length > 0 ? (
