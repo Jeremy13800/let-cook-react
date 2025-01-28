@@ -57,7 +57,7 @@ const Hero = () => {
       <div
         className="w-full h-full bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage: "url('/public/hero-image.jpeg')",
+          backgroundImage: "url('/hero-image.jpeg')",
           backgroundSize: "cover",
         }}
       >
