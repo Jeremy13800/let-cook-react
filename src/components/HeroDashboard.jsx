@@ -77,7 +77,10 @@ const HeroDashboard = () => {
               placeholder="Rechercher une recette..."
             />
             {/* Bouton de recherche */}
-            <button className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md">
+            <button
+              onClick={handleSearch}
+              className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md"
+            >
               Rechercher
             </button>
           </div>

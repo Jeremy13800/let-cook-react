@@ -17,9 +17,9 @@ const Hero = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch("../assets/recettes.json");
+        const response = await fetch("../src/assets/recettes.json");
         if (!response.ok) {
-          throw new Error("Erreur lors du chargement des données.hkhothkok");
+          throw new Error("Erreur lors du chargement des données.");
         }
         const data = await response.json();
         setRecipes(data); // Mettre à jour les recettes

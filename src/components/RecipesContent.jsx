@@ -16,7 +16,7 @@ const RecipesContent = () => {
     }
 
     // Si pas de state, chercher la recette par ID dans le fichier JSON
-    const foundRecipe = recettes.find(r => r.id.toString() === id);
+    const foundRecipe = recettes.find((r) => r.id.toString() === id);
     if (foundRecipe) {
       setRecipe(foundRecipe);
     }
@@ -25,9 +25,7 @@ const RecipesContent = () => {
   if (!recipe) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <p className="text-gray-500 text-lg">
-          Recette non trouvée
-        </p>
+        <p className="text-gray-500 text-lg">Recette non trouvée</p>
       </div>
     );
   }

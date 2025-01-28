@@ -1,5 +1,5 @@
 import React from "react";
-import recettes from "../assets/recettes.json";
+import recettesData from "../assets/recettes.json";
 import Header from "../components/Header";
 import HeroDashboard from "../components/HeroDashboard";
 import Section from "../components/Section";
