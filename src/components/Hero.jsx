@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import recetteData from "../assets/recettes.json";
 
-
 const Hero = () => {
   const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
   const [searchTerm, setSearchTerm] = useState(""); // État pour le champ de recherche
   const [filteredRecipes, setFilteredRecipes] = useState([]); // État pour les recettes filtrées
   const [error, setError] = useState(null); // État pour gérer les erreurs
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //Permet la navigation dynamique vers une page de détails de recette
 
+  //Navigue vers la page de détails de la recette en utilisant son id.
   const handleMoreInfo = (recipe) => {
     navigate(`/recettes/${recipe.id}`);
   };
@@ -33,10 +33,15 @@ const Hero = () => {
 
   //   fetchRecipes();
   // }, []);
+
+  //Charge les recettes
   useEffect(() => {
+    // REVIEW: localStorage.setItem("recettes", JSON.stringify(recetteData));
+
     setRecipes(recetteData);
+
     setFilteredRecipes(recetteData);
-  }, [])
+  }, []);
 
   // Mettre à jour les recettes filtrées à chaque modification du champ de recherche !
   useEffect(() => {
@@ -79,13 +84,13 @@ const Hero = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               type="search"
-              className="  border-[#d1cfcf] p-2 w-3/4"
+              className="  border-[#d1cfcf] p-2 w-3/4 sm:m-2"
               placeholder="Rechercher une recette..."
             />
             {/* Bouton de recherche */}
             <button
               onClick={handleSearch}
-              className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md"
+              className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md hidden"
             >
               Rechercher
             </button>

@@ -5,7 +5,7 @@ import { FaStar, FaRegStar } from "react-icons/fa";
 
 const RecipesContent = () => {
   const location = useLocation();
-  const { id } = useParams();
+  const { id } = useParams(); //
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {

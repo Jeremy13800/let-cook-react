@@ -5,7 +5,8 @@ import HeroDashboard from "../components/HeroDashboard";
 import Section from "../components/Section";
 import Footer from "../components/Footer";
 import DashboardContent from "../components/DashboardContent";
-const Dashboard = () => {
+const Dashboard = ({ rec }) => {
+  console.log("rec:", rec);
   return (
     <div>
       <Header />

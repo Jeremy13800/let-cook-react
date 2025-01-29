@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import recetteData from "../assets/recettes.json"
+import recetteData from "../assets/recettes.json";
 
 const HeroRecipes = () => {
   const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
@@ -9,7 +9,6 @@ const HeroRecipes = () => {
   const [filteredRecipes, setFilteredRecipes] = useState([]); // État pour les recettes filtrées
   const [error, setError] = useState(null); // État pour gérer les erreurs
   const navigate = useNavigate();
-
 
   const handleMoreInfo = (recipe) => {
     navigate(`/recettes/${recipe.id}`);
@@ -36,7 +35,7 @@ const HeroRecipes = () => {
   useEffect(() => {
     setRecipes(recetteData);
     setFilteredRecipes(recetteData);
-  }, [])
+  }, []);
 
   // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
   useEffect(() => {
@@ -85,7 +84,7 @@ const HeroRecipes = () => {
             {/* Bouton de recherche */}
             <button
               onClick={handleSearch}
-              className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md"
+              className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md hidden"
             >
               Rechercher
             </button>

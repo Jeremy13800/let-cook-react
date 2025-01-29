@@ -5,7 +5,8 @@ import Cards from "../components/Cards";
 import Section from "../components/Section";
 import Footer from "../components/Footer";
 
-const Home = () => {
+const Home = ({ rec }) => {
+  console.log("rec:", rec);
   return (
     <div>
       <Header />
