@@ -3,7 +3,7 @@ import recettes from "../assets/recettes.json";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-const cards = () => {
+const cards = ({ recettes }) => {
   // Gérer la navigation
   const navigate = useNavigate();
 

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import recettesData from "../assets/recettes.json";
+
 import { FaRegEye } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
 import { IoTrashBin } from "react-icons/io5";
 
-const DashboardContent = () => {
+const DashboardContent = ({ setRecettes, recettes }) => {
   const [newRecipe, setNewRecipe] = useState({
     title: "",
     difficulty: "",
@@ -12,7 +12,6 @@ const DashboardContent = () => {
     description: "",
   });
 
-  const [recettes, setRecettes] = useState(recettesData);
   const [viewingRecipe, setViewingRecipe] = useState(null); // Pour gérer l'overlay
 
   const handleChange = (e) => {
@@ -40,16 +39,18 @@ const DashboardContent = () => {
       newRecipe.category &&
       newRecipe.description
     ) {
-      const newId = recettes.length + 1;
+      const newId = `recipe-${recettes.length + 1}`;
       const newRecette = {
         id: newId,
         title: newRecipe.title,
-        difficulty: newRecipe.difficulty,
+        difficulty: Number(newRecipe.difficulty),
         category: newRecipe.category,
         description: newRecipe.description.trim(),
-        imageUrl: "../public/menu.webp",
+        imageUrl: "/menu.webp",
       };
-      setRecettes((prev) => [newRecette, ...recettes]); // Ajoute la nouvelle recette à la liste des recettes
+      setRecettes((prevRecettes) => [newRecette, ...prevRecettes]); // Ajoute la nouvelle recette à la liste des recettes
+      console.log(setRecettes);
+
       handleCancel(); // Reset du formualaire
     } else {
       alert("Veuillez remplir tous les champs");
@@ -119,8 +120,8 @@ const DashboardContent = () => {
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"
               placeholder="Entrez un nombre entre 1 et 5..."
-              min="1"
-              max="5"
+              // min="1"
+              // max="5"
             ></input>
           </div>
           <div>

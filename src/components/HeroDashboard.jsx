@@ -1,52 +1,60 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import recetteData from "../assets/recettes.json";
+import useRecipes from "./useRecipes";
 
 const HeroDashboard = () => {
-  const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
-  const [searchTerm, setSearchTerm] = useState(""); // État pour le champ de recherche
-  const [filteredRecipes, setFilteredRecipes] = useState([]); // État pour les recettes filtrées
-  const [error, setError] = useState(null); // État pour gérer les erreurs
-  const navigate = useNavigate();
+  const { searchTerm, setSearchTerm, filteredRecipes, handleMoreInfo, error } =
+    useRecipes();
+  // const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
+  // const [searchTerm, setSearchTerm] = useState(""); // État pour le champ de recherche
+  // const [filteredRecipes, setFilteredRecipes] = useState([]); // État pour les recettes filtrées
+  // const [error, setError] = useState(null); // État pour gérer les erreurs
+  // const navigate = useNavigate();
 
-  const handleMoreInfo = (recipe) => {
-    navigate(`/recettes/${recipe.id}`);
-  };
+  // const handleMoreInfo = (recipe) => {
+  //   navigate(`/recettes/${recipe.id}`);
+  // };
 
   // Charger dynamiquement les données JSON
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await fetch("/src/assets/recettes.json");
-        if (!response.ok) {
-          throw new Error("Erreur lors du chargement des données.");
-        }
-        const data = await response.json();
-        setRecipes(data); // Mettre à jour les recettes
-        setFilteredRecipes(data); // Initialiser les recettes filtrées
-      } catch (err) {
-        setError(err.message); // Gérer les erreurs
-      }
-    };
+  // useEffect(() => {
+  //   const fetchRecipes = async () => {
+  //     try {
+  //       const response = await fetch("/src/assets/recettes.json");
+  //       if (!response.ok) {
+  //         throw new Error("Erreur lors du chargement des données.");
+  //       }
+  //       const data = await response.json();
+  //       setRecipes(data); // Mettre à jour les recettes
+  //       setFilteredRecipes(data); // Initialiser les recettes filtrées
+  //     } catch (err) {
+  //       setError(err.message); // Gérer les erreurs
+  //     }
+  //   };
 
-    fetchRecipes();
-  }, []);
+  //   fetchRecipes();
+  // }, []);
+  // useEffect(() => {
+  //   setRecipes(recetteData);
+  //   setFilteredRecipes(recetteData);
+  // }, []);
 
-  // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
-  useEffect(() => {
-    setFilteredRecipes(
-      recipes.filter((recipe) =>
-        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
-  }, [searchTerm, recipes]);
+  // // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
+  // useEffect(() => {
+  //   setFilteredRecipes(
+  //     recipes.filter((recipe) =>
+  //       recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+  //     )
+  //   );
+  // }, [searchTerm, recipes]);
 
-  const handleSearch = () => {
-    const results = recipes.filter((recipe) =>
-      recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredRecipes(results);
-  };
+  // const handleSearch = () => {
+  //   const results = recipes.filter((recipe) =>
+  //     recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  //   setFilteredRecipes(results);
+  // };
 
   if (error) {
     return <p>Erreur : {error}</p>;
@@ -77,7 +85,7 @@ const HeroDashboard = () => {
               placeholder="Rechercher une recette..."
             />
             {/* Bouton de recherche */}
-            <button className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md">
+            <button className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md hidden">
               Rechercher
             </button>
           </div>
@@ -103,7 +111,6 @@ const HeroDashboard = () => {
               borderRadius: "5px", // Coins arrondis
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.5)", // Légère ombre
               maxHeight: "200px", // Hauteur maximale
-              opacity: "0.7",
             }}
           >
             {filteredRecipes.length > 0 ? (
