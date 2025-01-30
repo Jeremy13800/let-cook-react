@@ -52,7 +52,7 @@ const RecipesContent = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-lg shadow-lg">
         {/* Colonne gauche */}
-        <div className="space-y-10">
+        <div className="space-y-10 order-2 md:order-1">
           <div>
             <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2">
               Difficulté
