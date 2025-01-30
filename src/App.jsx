@@ -7,7 +7,6 @@ import Recette from "./pages/Recette";
 import Cards from "./components/Cards";
 import Hero from "./components/Hero";
 import recettesData from "./assets/recettes.json";
-import { useState } from "react";
 
 const App = () => {
   return (

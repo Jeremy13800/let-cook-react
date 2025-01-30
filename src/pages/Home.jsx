@@ -10,7 +10,6 @@ const Home = () => {
     <div>
       <Header />
       <Hero />
-
       <div className="bg-gradient-to-b from-white via-white/80 to-[#D1CFCF] min-h-screen">
         <Cards recettes={recettes} />
         <Section />
