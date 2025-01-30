@@ -1,45 +1,52 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import recetteData from "../assets/recettes.json";
+import useRecipes from "./useRecipes";
 const Hero = () => {
-  const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
-  const [searchTerm, setSearchTerm] = useState(""); // État pour le champ de recherche
-  const [filteredRecipes, setFilteredRecipes] = useState([]); // État pour les recettes filtrées
-  const [error, setError] = useState(null); // État pour gérer les erreurs
-  const navigate = useNavigate();
+  const { searchTerm, setSearchTerm, filteredRecipes, handleMoreInfo, error } =
+    useRecipes();
+  // const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
+  // const [searchTerm, setSearchTerm] = useState(""); // État pour le champ de recherche
+  // const [filteredRecipes, setFilteredRecipes] = useState([]); // État pour les recettes filtrées
+  // const [error, setError] = useState(null); // État pour gérer les erreurs
+  // const navigate = useNavigate();
 
-  const handleMoreInfo = (recipe) => {
-    navigate(`/recettes/${recipe.id}`);
-  };
+  // const handleMoreInfo = (recipe) => {
+  //   navigate(`/recettes/${recipe.id}`);
+  // };
 
   // Charger dynamiquement les données JSON
-  useEffect(() => {
-    const fetchRecipes = async () => {
-      try {
-        const response = await fetch("/src/assets/recettes.json");
-        if (!response.ok) {
-          throw new Error("Erreur lors du chargement des données.");
-        }
-        const data = await response.json();
-        setRecipes(data); // Mettre à jour les recettes
-        setFilteredRecipes(data); // Initialiser les recettes filtrées
-      } catch (err) {
-        setError(err.message); // Gérer les erreurs
-      }
-    };
+  // useEffect(() => {
+  //   const fetchRecipes = async () => {
+  //     try {
+  //       const response = await fetch("/src/assets/recettes.json");
+  //       if (!response.ok) {
+  //         throw new Error("Erreur lors du chargement des données.");
+  //       }
+  //       const data = await response.json();
+  //       setRecipes(data); // Mettre à jour les recettes
+  //       setFilteredRecipes(data); // Initialiser les recettes filtrées
+  //     } catch (err) {
+  //       setError(err.message); // Gérer les erreurs
+  //     }
+  //   };
 
-    fetchRecipes();
-  }, []);
+  //   fetchRecipes();
+  // }, []);
+  // useEffect(() => {
+  //   setRecipes(recetteData);
+  //   setFilteredRecipes(recetteData);
+  // }, []);
 
-  // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
-  useEffect(() => {
-    setFilteredRecipes(
-      recipes.filter((recipe) =>
-        recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-    );
-  }, [searchTerm, recipes]);
+  // // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
+  // useEffect(() => {
+  //   setFilteredRecipes(
+  //     recipes.filter((recipe) =>
+  //       recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
+  //     )
+  //   );
+  // }, [searchTerm, recipes]);
 
   // const handleSearch = () => {
   //   const results = recipes.filter((recipe) =>
@@ -73,13 +80,13 @@ const Hero = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               type="search"
-              className="  border-[#d1cfcf] p-2 w-3/4 sm:m-2"
+              className="  border-[#d1cfcf] p-2 w-3/4"
               placeholder="Rechercher une recette..."
             />
             {/* Bouton de recherche */}
             <button
-              onClick={handleSearch}
-              className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md"
+              // onClick={handleSearch}
+              className="bg-[#E4B95F] text-white py-2 px-3 ml-3 rounded-md hidden"
             >
               Rechercher
             </button>
@@ -88,7 +95,7 @@ const Hero = () => {
           <div
             style={{
               visibility: searchTerm.trim() ? "visible" : "hidden", // Rend visible/invisible
-              opacity: searchTerm.trim() ? 0.8 : 0, // Transition d'opacité pour l'apparition
+              opacity: searchTerm.trim() ? 1 : 0, // Transition d'opacité pour l'apparition
               transform: searchTerm.trim()
                 ? "translateY(0)"
                 : "translateY(-10px)", // Glissement subtil
