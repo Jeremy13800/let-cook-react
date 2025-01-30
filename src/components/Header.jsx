@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RxAvatar } from "react-icons/rx";
 import Dashboard from "../pages/Dashboard";
 import { useState } from "react";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Header = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
@@ -26,14 +27,21 @@ const Header = () => {
   ];
   return (
     <>
-      <header className="container mx-auto flex justify-between ">
+      <header className="container mx-auto flex justify-between">
         <div className="flex">
           <Link to={"/"}>
             <img className="logo" src="../logo.svg" />
           </Link>
           {/* <p className="m-5 ml-10">Acceuil</p> */}
         </div>
+
         <div className="flex">
+          <DarkModeToggle />
+          {/* <MdOutlineDarkMode
+            size={45}
+            color="#E4B95F"
+            className="mr-1  hover:text-yellow-600 transition-transform transform hover:scale-110 duration-300"
+          /> */}
           <RxAvatar
             onClick={toggleOverlay}
             size={45}

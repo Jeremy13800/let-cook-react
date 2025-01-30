@@ -46,7 +46,7 @@ const RecipesContent = () => {
 
   return (
     <div className="container mx-auto my-12 px-4 md:px-8 lg:px-16">
-      <h1 className="text-5xl font-bold mb-12 text-center text-gray-800 tracking-wide">
+      <h1 className="text-5xl font-bold mb-12 text-center text-gray-800 tracking-wide dark:text-[#E4B95F]">
         {recipe.title}
       </h1>
 
