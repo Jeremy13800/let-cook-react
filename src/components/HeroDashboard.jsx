@@ -71,17 +71,19 @@ const HeroDashboard = () => {
       >
         {/*Texte en overlays */}
         <div className="text-white text-center p-5 rounded-md">
-          <h1 className="text-6xl font-bold mb-3">DASHBOARD</h1>
-          <h2 className="text-2xl mb-6">
+          <h1 className="text-4xl md:text-5xl font-extrabold  dark:text-[#E4B95F] tracking-tight leading-tight md:leading-snug text-center mt-8 mb-6">
+            DASHBOARD
+          </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold  dark:text-gray-300 tracking-wide leading-snug text-center mt-4 mb-8">
             On a trouvé la recette pour vous faire aimer la cuisine
           </h2>
           {/* Barre de recherche */}
-          <div className="pt-2 text-black">
+          <div className="relative mt-6 w-full max-w-2xl mx-auto text-gray-700 dark:text-gray-300">
             <input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               type="search"
-              className="  border-[#d1cfcf] p-2 w-3/4"
+              className="w-full py-3 px-5 text-lg bg-white dark:bg-gray-300 border border-gray-300 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300 shadow-md"
               placeholder="Rechercher une recette..."
             />
             {/* Bouton de recherche */}

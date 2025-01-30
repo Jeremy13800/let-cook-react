@@ -33,6 +33,9 @@ export default function DarkModeToggle() {
 
   return (
     <button
+      aria-label="Basculer entre le mode clair et le mode sombre"
+      type="button"
+      title="Basculer entre le mode clair et le mode sombre"
       onClick={toggleDarkMode}
       className="mr-1  hover:text-yellow-600 transition-transform transform hover:scale-110 duration-300 dark:text-gray-200  transition-colors "
     >

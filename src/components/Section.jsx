@@ -30,9 +30,11 @@ const Section = () => {
   return (
     <section className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-9 py-12   rounded-lg">
       {/* Site Map */}
-      <div className="flex flex-col border p-7 rounded-lg bg-white shadow-md">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">Site Map</h3>
-        <ul className="list-disc pl-5 space-y-2 text-gray-700">
+      <div className="flex flex-col border p-7 rounded-lg bg-white shadow-md dark:bg-gray-700">
+        <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-yellow-400">
+          Site Map
+        </h3>
+        <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-white">
           {/* <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">Accueil</li>
           <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">Recettes</li>
           <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">
@@ -55,29 +57,34 @@ const Section = () => {
       </div>
 
       {/* Réseaux Sociaux */}
-      <div className="flex flex-col border p-6 rounded-lg bg-white shadow-md">
-        <h3 className="text-xl font-bold text-gray-800 mb-6">Suivez Nous</h3>
+      <div className="flex flex-col border p-6 rounded-lg bg-white shadow-md dark:bg-gray-700">
+        <h3 className="text-xl font-bold text-gray-800 mb-6 dark:text-yellow-400">
+          Suivez Nous
+        </h3>
         <div className="flex items-center space-x-4 mb-6">
           <FaFacebook className="text-blue-600 text-3xl" />
-          <p className="text-gray-700">Facebook</p>
+          <p className="text-gray-700 dark:text-white">Facebook</p>
         </div>
         <div className="flex items-center space-x-4 mb-6">
           <FaTwitter className="text-blue-400 text-3xl" />
-          <p className="text-gray-700 ">Twitter</p>
+          <p className="text-gray-700 dark:text-white ">Twitter</p>
         </div>
         <div className="flex items-center space-x-4">
           <FaInstagramSquare className="text-pink-600 text-3xl" />
-          <p className="text-gray-700">Instagram</p>
+          <p className="text-gray-700 dark:text-white">Instagram</p>
         </div>
       </div>
 
       {/* Newsletter */}
-      <div className="flex flex-col border p-6 rounded-lg bg-white shadow-md">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">
+      <div className="flex flex-col border p-6 rounded-lg bg-white shadow-md dark:bg-gray-700">
+        <h3 className="text-xl font-bold text-gray-800 mb-4 dark:text-yellow-400">
           Abonnez-vous à notre NewsLetter
         </h3>
         <form className="flex flex-col space-y-4">
-          <label htmlFor="email" className="text-gray-700 font-medium">
+          <label
+            htmlFor="email"
+            className="text-gray-700 font-medium dark:text-white"
+          >
             Email :
           </label>
           <input

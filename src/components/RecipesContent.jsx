@@ -50,11 +50,11 @@ const RecipesContent = () => {
         {recipe.title}
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-lg shadow-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-gray-50 p-8 rounded-lg shadow-lg dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50  transition-all  dark:border-gray-600 rounded-lg shadow-lg  transition-transform duration-300 ease-in-out transition-shadow  duration-300 ease-in-out">
         {/* Colonne gauche */}
         <div className="space-y-10 order-2 md:order-1">
           <div>
-            <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2">
+            <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2 dark:text-[#E4B95F]">
               Difficulté
             </h2>
             <div className="flex items-center space-x-2">
@@ -63,10 +63,10 @@ const RecipesContent = () => {
           </div>
 
           <div>
-            <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2">
+            <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2 dark:text-[#E4B95F]">
               Ingrédients
             </h2>
-            <ul className="list-disc list-inside space-y-3 text-gray-700 bg-white p-6 rounded-lg shadow-md">
+            <ul className="list-disc list-inside space-y-3 text-gray-700 bg-white p-6 rounded-lg shadow-md  dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50 dark:text-white mt-3">
               {recipe.ingredients.map((ingredient, index) => (
                 <li key={index} className="text-lg">
                   {ingredient}
@@ -76,10 +76,10 @@ const RecipesContent = () => {
           </div>
 
           <div>
-            <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2">
+            <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2 dark:text-[#E4B95F] ">
               Instructions
             </h2>
-            <ol className="list-decimal list-inside space-y-4 text-gray-700 bg-white p-6 rounded-lg shadow-md">
+            <ol className="list-decimal list-inside space-y-4 text-gray-700 bg-white p-6 rounded-lg shadow-md  dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50 dark:text-white">
               {recipe.instructions.map((instruction, index) => (
                 <li key={index} className="text-lg flex items-start space-x-3">
                   <span className="font-bold text-[#E4B95F]">{index + 1}.</span>

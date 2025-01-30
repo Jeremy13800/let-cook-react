@@ -91,8 +91,8 @@ const DashboardContent = ({ setRecettes, recettes }) => {
   return (
     <div className="container mx-auto my-10 px-4 md:px-8 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Colonne gauche : Formulaire */}
-      <div className="bg-gray-50 p-6 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold mb-6 text-gray-800">
+      <div className="bg-gray-50 p-6 rounded-lg shadow-lg dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50  transition-all  dark:border-gray-600 rounded-lg shadow-lg  transition-transform duration-300 ease-in-out transition-shadow  duration-300 ease-in-out">
+        <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-[#E4B95F]">
           Ajouter une recette
         </h1>
         <form className="space-y-4">
@@ -105,7 +105,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               name="title"
               value={newRecipe.title}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
               placeholder="Entrez le titre..."
             />
           </div>
@@ -119,7 +119,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               value={newRecipe.difficulty}
               onChange={handleChange}
               pattern="[1-5]"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
               placeholder="Entrez un nombre entre 1 et 5..."
             ></input>
           </div>
@@ -132,7 +132,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               value={newRecipe.category}
               onChange={handleChange}
               placeholder="Entrez un catégorie..."
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
             ></input>
           </div>
           <div>
@@ -143,7 +143,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               name="description"
               value={newRecipe.description}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
               rows="4"
               placeholder="Entrez une description"
             ></textarea>
@@ -168,8 +168,8 @@ const DashboardContent = ({ setRecettes, recettes }) => {
       </div>
 
       {/* Colonne droite : Slider des recettes */}
-      <div className="bg-white p-6 rounded-lg shadow-lg ">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">
+      <div className="bg-white p-6 rounded-lg shadow-lg dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50  transition-all  dark:border-gray-600 rounded-lg shadow-lg  transition-transform duration-300 ease-in-out transition-shadow  duration-300 ease-in-out ">
+        <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-[#E4B95F]">
           Recettes disponibles
         </h2>
         <div className="space-y-6 overflow-y-auto max-h-[500px] force-scrollbar">
@@ -185,10 +185,10 @@ const DashboardContent = ({ setRecettes, recettes }) => {
                   className="w-16 h-16 object-cover rounded-lg"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-[#E4B95F]">
                     {recipe.title}
                   </h3>
-                  <p className="text-sm text-gray-600 line-clamp-1">
+                  <p className="text-sm text-gray-600 line-clamp-1 dark:text-white">
                     {recipe.description}
                   </p>
                 </div>
