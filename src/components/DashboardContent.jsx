@@ -176,7 +176,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
           {recettes.map((recipe) => (
             <div
               key={recipe.id}
-              className="flex items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-100 rounded-lg"
+              className="flex items-center justify-between p-4 border-b border-gray-200 hover:bg-gray-5s00 rounded-lg"
             >
               <div className="flex items-center space-x-4">
                 <img
