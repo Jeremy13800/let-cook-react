@@ -41,3 +41,8 @@ input::placeholder {
 input:active {
   color: #d1cfcf;
 }
+
+.force-scrollbar {
+  overflow-y: scroll; /* Affiche toujours la scrollbar */
+  -webkit-overflow-scrolling: touch; /* Scrolling fluide sur mobile */
+}

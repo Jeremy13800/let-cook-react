@@ -95,7 +95,7 @@ const RecipesContent = () => {
           <img
             src={recipe.imageUrl}
             alt={recipe.title}
-            className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg border-4 border-[#E4B95F]"
+            className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg border-4 border-[#E4B95F] force-scrollbar "
           />
         </div>
       </div>

@@ -187,7 +187,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
                 />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-800">
-                    {recipe.name}
+                    {recipe.title}
                   </h3>
                   <p className="text-sm text-gray-600 line-clamp-1">
                     {recipe.description}
