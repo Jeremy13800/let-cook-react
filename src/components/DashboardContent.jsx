@@ -120,8 +120,9 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"
               placeholder="Entrez un nombre entre 1 et 5..."
-              // min="1"
-              // max="5"
+              min="1"
+              max="5"
+              step="1"
             ></input>
           </div>
           <div>
