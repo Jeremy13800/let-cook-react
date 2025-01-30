@@ -169,11 +169,11 @@ const DashboardContent = ({ setRecettes, recettes }) => {
       </div>
 
       {/* Colonne droite : Slider des recettes */}
-      <div className="bg-white p-6 rounded-lg shadow-lg">
+      <div className="bg-white p-6 rounded-lg shadow-lg ">
         <h2 className="text-3xl font-bold mb-6 text-gray-800">
           Recettes disponibles
         </h2>
-        <div className="space-y-6 overflow-y-auto max-h-[500px]">
+        <div className="space-y-6 overflow-y-auto max-h-[500px] force-scrollbar">
           {recettes.map((recipe) => (
             <div
               key={recipe.id}
