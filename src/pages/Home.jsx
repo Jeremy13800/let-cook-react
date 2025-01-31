@@ -6,6 +6,7 @@ import Section from "../components/Section";
 import Footer from "../components/Footer";
 import DashboardContent from "../components/DashboardContent";
 import { useState } from "react";
+
 const Home = ({ recettes, setRecettes }) => {
   return (
     <div className="min-h-screen w-full bg-white dark:bg-gray-900">

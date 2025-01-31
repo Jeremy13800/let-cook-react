@@ -66,7 +66,10 @@ const RecipesContent = () => {
             <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2 dark:text-[#E4B95F]">
               Ingrédients
             </h2>
-            <ul className="list-disc list-inside space-y-3 text-gray-700 bg-white p-6 rounded-lg shadow-md  dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50 dark:text-white mt-3">
+            <ul
+              role="list"
+              className="list-disc list-inside space-y-3 text-gray-700 bg-white p-6 rounded-lg shadow-md  dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50 dark:text-white mt-3"
+            >
               {recipe.ingredients.map((ingredient, index) => (
                 <li key={index} className="text-lg">
                   {ingredient}
@@ -79,7 +82,10 @@ const RecipesContent = () => {
             <h2 className="text-3xl font-semibold mb-4 text-gray-800 border-b-2 border-[#E4B95F] inline-block pb-2 dark:text-[#E4B95F] ">
               Instructions
             </h2>
-            <ol className="list-decimal list-inside space-y-4 text-gray-700 bg-white p-6 rounded-lg shadow-md  dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50 dark:text-white">
+            <ol
+              role="list"
+              className="list-decimal list-inside space-y-4 text-gray-700 bg-white p-6 rounded-lg shadow-md  dark:bg-gray-700 dark:shadow-lg dark:shadow-gray-900/50 dark:text-white"
+            >
               {recipe.instructions.map((instruction, index) => (
                 <li key={index} className="text-lg flex items-start space-x-3">
                   <span className="font-bold text-[#E4B95F]">{index + 1}.</span>
@@ -93,8 +99,9 @@ const RecipesContent = () => {
         {/* Colonne droite */}
         <div className="flex justify-center items-start">
           <img
+            loading="lazy"
             src={recipe.imageUrl}
-            alt={recipe.title}
+            alt={`Image de la recette ${recipe.title}`}
             className="w-full h-auto max-h-[500px] object-cover rounded-lg shadow-lg border-4 border-[#E4B95F] force-scrollbar "
           />
         </div>

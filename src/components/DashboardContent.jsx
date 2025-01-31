@@ -105,7 +105,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               name="title"
               value={newRecipe.title}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-300 dark:placeholder-gray-500"
               placeholder="Entrez le titre..."
             />
           </div>
@@ -119,7 +119,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               value={newRecipe.difficulty}
               onChange={handleChange}
               pattern="[1-5]"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-300 dark:placeholder-gray-500"
               placeholder="Entrez un nombre entre 1 et 5..."
             ></input>
           </div>
@@ -132,7 +132,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               value={newRecipe.category}
               onChange={handleChange}
               placeholder="Entrez un catégorie..."
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-300 dark:placeholder-gray-500"
             ></input>
           </div>
           <div>
@@ -143,9 +143,9 @@ const DashboardContent = ({ setRecettes, recettes }) => {
               name="description"
               value={newRecipe.description}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-200"
+              className="w-full p-3 border italic border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 dark:bg-gray-300 dark:placeholder-gray-500"
               rows="4"
-              placeholder="Entrez une description"
+              placeholder="Entrez une description..."
             ></textarea>
           </div>
           <div className="flex justify-end space-x-4">
@@ -180,6 +180,7 @@ const DashboardContent = ({ setRecettes, recettes }) => {
             >
               <div className="flex items-center space-x-4">
                 <img
+                  loading="lazy"
                   src={recipe.imageUrl}
                   alt={recipe.title}
                   className="w-16 h-16 object-cover rounded-lg"

@@ -35,15 +35,6 @@ const Section = () => {
           Site Map
         </h3>
         <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-white">
-          {/* <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">Accueil</li>
-          <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">Recettes</li>
-          <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">
-            Dashboard
-          </li>
-          <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">Contact</li>
-          <li className="hover:text-[#d1cfcf] px-2 cursor-pointer">
-            Politique de confidentialité
-          </li> */}
           {links.map((link, i) => {
             return (
               <li key={i}>

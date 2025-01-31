@@ -7,65 +7,23 @@ import useRecipes from "./useRecipes";
 const HeroRecipes = () => {
   const { searchTerm, setSearchTerm, filteredRecipes, handleMoreInfo, error } =
     useRecipes();
-  // const [recipes, setRecipes] = useState([]); // État pour stocker les recettes
-  // const [searchTerm, setSearchTerm] = useState(""); // État pour le champ de recherche
-  // const [filteredRecipes, setFilteredRecipes] = useState([]); // État pour les recettes filtrées
-  // const [error, setError] = useState(null); // État pour gérer les erreurs
-  // const navigate = useNavigate();
-
-  // const handleMoreInfo = (recipe) => {
-  //   navigate(`/recettes/${recipe.id}`);
-  // };
-
-  // Charger dynamiquement les données JSON
-  // useEffect(() => {
-  //   const fetchRecipes = async () => {
-  //     try {
-  //       const response = await fetch("/src/assets/recettes.json");
-  //       if (!response.ok) {
-  //         throw new Error("Erreur lors du chargement des données.");
-  //       }
-  //       const data = await response.json();
-  //       setRecipes(data); // Mettre à jour les recettes
-  //       setFilteredRecipes(data); // Initialiser les recettes filtrées
-  //     } catch (err) {
-  //       setError(err.message); // Gérer les erreurs
-  //     }
-  //   };
-
-  //   fetchRecipes();
-  // }, []);
-  // useEffect(() => {
-  //   setRecipes(recetteData);
-  //   setFilteredRecipes(recetteData);
-  // }, []);
-
-  // // Mettre à jour les recettes filtrées à chaque modification du champ de recherche
-  // useEffect(() => {
-  //   setFilteredRecipes(
-  //     recipes.filter((recipe) =>
-  //       recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-  //     )
-  //   );
-  // }, [searchTerm, recipes]);
-
-  // const handleSearch = () => {
-  //   const results = recipes.filter((recipe) =>
-  //     recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  //   setFilteredRecipes(results);
-  // };
 
   if (error) {
-    return <p>Erreur : {error}</p>;
+    return (
+      <div role="alert" className="text-red-500 text-lg text-center mt-4">
+        Erreur : {error}
+      </div>
+    );
   }
   return (
     <div className="relative w-full h-[500px] overflow-hidden mt-2">
       {/* Image Background */}
       <div
+        rel="preload"
+        as="image"
         className="w-full h-full bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage: "url('/hero-image.jpeg')",
+          backgroundImage: "url('/hero-image.webp')",
           backgroundSize: "cover",
         }}
       >
@@ -83,7 +41,7 @@ const HeroRecipes = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               type="search"
-              className="w-full py-3 px-5 text-lg bg-white dark:bg-gray-300 border border-gray-300 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300 shadow-md"
+              className="w-full py-3 px-5 text-lg bg-white dark:bg-gray-300 border dark:text-black border-gray-300 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-300 shadow-md"
               placeholder="Rechercher une recette..."
             />
             {/* Bouton de recherche */}
@@ -91,7 +49,8 @@ const HeroRecipes = () => {
               Rechercher
             </button>
           </div>
-          <div
+          <ul
+            role="list"
             style={{
               visibility: searchTerm.trim() ? "visible" : "hidden", // Rend visible/invisible
               opacity: searchTerm.trim() ? 1 : 0, // Transition d'opacité pour l'apparition
@@ -114,25 +73,27 @@ const HeroRecipes = () => {
               boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.5)", // Légère ombre
               maxHeight: "200px", // Hauteur maximale
             }}
+            className="rounded-lg shadow-lg"
           >
             {filteredRecipes.length > 0 ? (
               filteredRecipes.map((recipe) => (
-                <div
+                <li
                   key={recipe.id}
                   className="p-2 border-b hover:text-[#d1cfcf]"
                 >
                   <button
                     onClick={() => handleMoreInfo(recipe)}
                     className="font-bold"
+                    aria-label="ce bouton permet d'obtenur plus d'informations sur la recette selectionnée"
                   >
                     {recipe.title}
                   </button>
-                </div>
+                </li>
               ))
             ) : (
-              <p className="text-gray-500">Aucune recette trouvée.</p>
+              <li className="text-gray-500">Aucune recette trouvée.</li>
             )}
-          </div>
+          </ul>
         </div>
       </div>
     </div>

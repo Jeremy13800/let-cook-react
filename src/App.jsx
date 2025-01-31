@@ -8,6 +8,7 @@ import Hero from "./components/Hero";
 import recettesData from "./assets/recettes.json";
 import { useState } from "react";
 
+
 const App = () => {
   const [recettes, setRecettes] = useState(recettesData);
   return (

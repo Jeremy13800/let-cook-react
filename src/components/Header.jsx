@@ -30,7 +30,7 @@ const Header = () => {
       <header className="container mx-auto flex justify-between">
         <div className="flex">
           <Link to={"/"}>
-            <img className="logo" src="../logo.svg" />
+            <img className="logo" src="../logo.svg" alt="logo-lets-cook" />
           </Link>
           {/* <p className="m-5 ml-10">Acceuil</p> */}
         </div>

@@ -33,7 +33,8 @@ const cards = ({ recettes }) => {
         <img
           className="object-cover w-full h-[350px] mb-3  rounded-t-lg"
           src={recipe.imageUrl}
-          alt={recipe.image}
+          alt={`Image de la recette ${recipe.title}`}
+          loading="lazy"
         />
         <h2 className="m-2 text-xl font-bold text-gray-800 dark:text-yellow-400">
           {recipe.title}
